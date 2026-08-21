@@ -8,7 +8,10 @@
 Summary: %{vendor_name} %{driver_name} device drivers
 Name: %{vendor_label}-%{driver_name}-alt
 Version: 8.74.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
+# Built against new kABI after cip rebase
+Requires: xcpng-kernel-kabi = 4.19.325-cip134+
+
 License: GPL
 
 # Extracted from latest XS driver disk
