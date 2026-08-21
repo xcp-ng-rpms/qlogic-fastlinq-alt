@@ -8,7 +8,10 @@
 Summary: %{vendor_name} %{driver_name} device drivers
 Name: %{vendor_label}-%{driver_name}-alt
 Version: 8.74.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
+# Built against new kABI after cip rebase
+Requires: xcpng-kernel-kabi = 4.19.325-cip134+
+
 License: GPL
 
 # Extracted from latest XS driver disk
@@ -64,6 +67,9 @@ install -m 755 $(pwd)/qed-%{version}/src/qed_init_values_zipped-*.bin %{buildroo
 /lib/modules/%{kernel_version}/*/*.ko
 
 %changelog
+* Mon Aug 31 2026 Quentin Casasnovas <quentin.casasnovas@vates.tech> - 8.74.6.0-2
+- Rebuild for kernel v4.19.325-cip134
+
 * Fri Apr 17 2026 Thierry Escande <thierry.escande@vates.tech> 8.74.6.0-1
 - Update to sources v8.74.6.0
 
