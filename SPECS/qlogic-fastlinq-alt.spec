@@ -8,14 +8,14 @@
 Summary: %{vendor_name} %{driver_name} device drivers
 Name: %{vendor_label}-%{driver_name}-alt
 Version: 8.74.6.0
-Release: 1%{?dist}
+Release: 1.0.kernelpreview.1%{?dist}
 License: GPL
 
 # Extracted from latest XS driver disk
 Source0: qlogic-fastlinq-%{version}.tar.gz
 
 BuildRequires: gcc
-BuildRequires: kernel-devel
+BuildRequires: kernel-devel >= 4.19.325-cip137.8.0.46.16
 Provides: vendor-driver
 Requires: kernel-uname-r = %{kernel_version}
 Requires(post): /usr/sbin/depmod
@@ -64,6 +64,9 @@ install -m 755 $(pwd)/qed-%{version}/src/qed_init_values_zipped-*.bin %{buildroo
 /lib/modules/%{kernel_version}/*/*.ko
 
 %changelog
+* Mon Nov 16 2026 Quentin Casasnovas <quentin.casasnovas@vates.tech> - 8.74.6.0-1.0.kernelpreview.1
+- Rebuild for kernel v4.19.325-cip137
+
 * Fri Apr 17 2026 Thierry Escande <thierry.escande@vates.tech> 8.74.6.0-1
 - Update to sources v8.74.6.0
 
